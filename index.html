@@ -75,7 +75,7 @@
 
         // Function to load data from GitHub and start the update loop
         function loadDataAndStart() {
-            fetch('data/data.json')
+            fetch('data/history.json')
                 .then(response => response.json())
                 .then(data => {
                     answers = data; // Load the initial data array
