@@ -123,7 +123,7 @@
                 scrollToBottom();
 
                 current_index++;
-              oldanswersContainer.innerHTML = answers.slice(0, current_index).join('<br><b>');
+              oldanswersContainer.innerHTML = answers.slice(0, current_index).join('<br><p></p>');
                 setTimeout(updateQA, 10000); // 2000 milliseconds (2 seconds)
             }
         }
