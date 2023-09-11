@@ -69,8 +69,8 @@
       
         // Scroll to the end of the page
         function scrollToBottom() {
-            const container = document.getElementsByClassName('container mt-5');
-            container.scrollTo(0, container.scrollHeight);
+            //const container = document.getElementsByClassName('container mt-5');
+            //container.scrollTo(0, container.scrollHeight);
         }
 
         // Function to load data from GitHub and start the update loop
@@ -115,7 +115,6 @@
             if (currentIndex == answer.length) {
                 console.log("clear ", answer);
                 newanswersContainer.innerHTML = '<span class="blinking-cursor">|</span>';
-                oldanswersContainer.innerHTML = answers.slice(0, current_index).join('<br>');
                 answersContainer.innerHTML = '';
                 clearInterval(typingInterval);
                 currentIndex = 0;
@@ -124,6 +123,7 @@
                 scrollToBottom();
 
                 current_index++;
+                oldanswersContainer.innerHTML = answers.slice(0, current_index).join('<br>');
                 setTimeout(updateQA, 10000); // 2000 milliseconds (2 seconds)
             }
         }
