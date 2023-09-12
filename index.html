@@ -59,6 +59,8 @@
             <div id="buf-answers-container" class="led-text"><br></div>
             <div id="answers-container" class="led-text"></div>
             <div id="new-answers-container" class="led-text"><span class="blinking-cursor">|</span></div>
+            <div id="filler-answers-container" class="led-text" style="color: #051DB5;"  ><p>x</p> <p>x</p> <p>x</p> <p>x</p></div>
+            <div id="after-answers-container" class="led-text" style="color: #051DB5;"  ><p>x</p></div>
         </div>
     </div>
     <script>
@@ -72,8 +74,9 @@
         // Scroll to the end of the page
         function scrollToBottom() {
             //container.scrollTo(0, container.scrollHeight);
-          const container = document.getElementById('new-answers-container');
-          $.scrollTo(container, { duration:800 });
+          const container = document.getElementById('after-answers-container');
+          //let container = 'footer';
+          $.scrollTo("max", { duration:800 });
         }
 
         // Function to load data from GitHub and start the update loop
