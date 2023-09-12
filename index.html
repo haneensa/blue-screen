@@ -12,12 +12,13 @@
         /* Custom CSS for left-aligned, small white text */
         #qa-container {
             font-size: 15px; /* Adjust the font size as needed */
-            height: 100vh; /* Set the height to 100% of the viewport height */
+            height: 100%; /* Set the height to 100% of the viewport height */
             display: flex; /* Use flexbox to vertically center content */
             flex-direction: column; /* Vertically align content */
             justify-content: flex-start; /* Align content to the top */
             align-items: flex-start; /* Align content to the left */
             color: white; /* Set text color to white for visibility */
+            bottom: 100px;
         }
         .led-text {
             font-family: 'Press Start 2P', cursive;
@@ -27,14 +28,17 @@
         body {
             background-color: #051DB5; /* Hex color code for BSOD blue */
             margin: 0; /* Remove body margin for edge-to-edge appearance */
+            min-height: 100vh; /* Set a minimum height to the body */
         }
         /* Position the container in the far-left corner */
         .container.mt-5 {
-            padding-bottom: 100px; /* Add padding at the top of the body */
+            height: calc(100vh - 40px);
             position: absolute;
             top: 0;
             left: 0;
+            bottom: 100px;
         }
+
         /* Cursor blinking animation */
         .blinking-cursor {
             animation: blink-animation 0.8s infinite;
@@ -73,10 +77,8 @@
       
         // Scroll to the end of the page
         function scrollToBottom() {
-            //container.scrollTo(0, container.scrollHeight);
           const container = document.getElementById('after-answers-container');
-          //let container = 'footer';
-          $.scrollTo("max", { duration:800 });
+          $.scrollTo(container, { duration:800 });
         }
 
         // Function to load data from GitHub and start the update loop
@@ -97,6 +99,7 @@
             if (current_index >= answers.length) {
                 current_index = 0;
             }
+            scrollToBottom();
             answer = answers[current_index];
             console.log(current_index, ": ", answer);
             displayAnswers(); // Update the displayed answers
@@ -125,8 +128,9 @@
                 clearInterval(typingInterval);
                 currentIndex = 0;
                 currentAnswer = "";
-                // Call the scrollToBottom function to scroll to the end of the page
-                scrollToBottom();
+
+                const container = document.getElementById('new-answers-container');
+                $.scrollTo(container, { duration:800 });
 
                 current_index++;
               oldanswersContainer.innerHTML = answers.slice(0, current_index).join('<br><p></p>');
