@@ -5,6 +5,7 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Press+Start+2P">
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-scrollTo/2.1.3/jquery.scrollTo.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
     <style>
@@ -29,6 +30,7 @@
         }
         /* Position the container in the far-left corner */
         .container.mt-5 {
+            padding-bottom: 100px; /* Add padding at the top of the body */
             position: absolute;
             top: 0;
             left: 0;
@@ -69,8 +71,9 @@
       
         // Scroll to the end of the page
         function scrollToBottom() {
-            //const container = document.getElementsByClassName('container mt-5');
             //container.scrollTo(0, container.scrollHeight);
+          const container = document.getElementById('new-answers-container');
+          $.scrollTo(container, { duration:800 });
         }
 
         // Function to load data from GitHub and start the update loop
