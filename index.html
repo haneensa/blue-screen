@@ -96,10 +96,11 @@
         }
 
         function updateQA() {
+            if (current_index != 0) {
+              scrollToBottom();
+            }
             if (current_index >= answers.length) {
                 current_index = 0;
-            } else {
-              scrollToBottom();
             }
             answer = answers[current_index];
             console.log(current_index, ": ", answer);
